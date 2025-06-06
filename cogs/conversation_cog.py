@@ -20,8 +20,8 @@ class ConversationCog(commands.Cog):
 
     def _configure_ai(self):
         genai.configure(api_key=config.GOOGLE_AI_KEY)
-        self.model = genai.GenerativeModel('gemini-1.5-flash-latest')
-        print("Google AI 模型配置成功。")
+        self.model = genai.GenerativeModel('models/gemini-2.5-flash-preview-05-20')
+        print(f"Google AI 模型配置成功，使用模型：{self.model.model_name}")
 
     def _format_history_for_prompt(self, history: list[dict]) -> str:
         if not history:
